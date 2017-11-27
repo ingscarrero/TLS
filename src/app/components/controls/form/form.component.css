@@ -1,0 +1,76 @@
+form{
+    width: 100%;
+}
+.field{
+    position: relative;
+    width: 100%;
+    padding: 20px 0 10px 0;
+    text-align: left;
+}
+
+.field-group,
+.field input,
+.field textarea{
+    font-size: 20px;
+    font-weight: lighter;
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+    background-color: transparent; 
+}
+
+.field label{
+    font-weight: bolder;
+}
+
+.field hr{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    border: none;
+    border-bottom: 0.25px solid rgba(40,40,40,0.4);
+}
+
+.field hr + hr{
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition-property: width;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    border: none;
+}
+
+.field input:focus + hr,
+.field textarea:focus + hr  {
+    opacity: 0;
+}
+
+.field input:focus  + hr + hr,
+.field textarea:focus  + hr + hr {
+    border-bottom: 1px solid green;
+    width: 100%;
+}
+
+.field input.ng-invalid:not(.ng-untouched)  + hr + hr,
+.field textarea.ng-invalid:not(.ng-untouched)  + hr + hr {
+    border-bottom: 1px solid red;
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    
+    
+    .field-group,
+    .field input,
+    .field textarea{
+        font-size: 18px;
+    }
+}

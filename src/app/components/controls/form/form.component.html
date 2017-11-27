@@ -1,0 +1,37 @@
+<form id="{{name}}">
+  <div *ngFor="let field of fields | orderBy: order" class="field-group">
+    <div *ngIf="field.type=='text'" class="field {{field.class? field.class : ''}}">
+      <label>
+        {{field.caption}}
+      </label>
+      <textarea rows="field.lines ? field.lines : 1" [(ngModel)]="model[field.name]" name="{{field.name}}" rows="{{field.lines}}" required="{{field.required}}"></textarea>
+      <hr>
+      <hr>
+    </div>
+    <div *ngIf="field.type=='e-mail'" class="field {{field.class? field.class : ''}}">
+      <label *ngIf="!field.lines">
+        {{field.caption}}
+      </label>
+      <input [(ngModel)]="model[field.name]" type="email" name="{{field.name}}" required="{{field.required}}">
+      <hr>
+      <hr>
+    </div>
+    <div *ngIf="field.type=='phone'" class="field {{field.class? field.class : ''}}">
+      <label *ngIf="!field.lines">
+        {{field.caption}}
+      </label>
+      <input [(ngModel)]="model[field.name]" type="tel" name="{{field.name}}" required="{{field.required}}">
+      <hr>
+      <hr>
+    </div>
+    <div *ngIf="field.type=='number'" class="field {{field.class? field.class : ''}}">
+      <label *ngIf="!field.lines">
+        {{field.caption}}
+      </label>
+      <input [(ngModel)]="model[field.name]" type="number" name="{{field.name}}" required="{{field.required}}">
+      <hr>
+      <hr>
+    </div>
+  </div>
+  <button class="button" (click)=submit()>{{action}}</button>
+</form>
