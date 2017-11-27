@@ -24,7 +24,7 @@ const defaultViewSettings: TLSViewSettings = {
 };
 
 const firstStepFields = [
-  { caption: 'Offer Price', required: true, type: 'text', name: 'subject', order: 0, lines: 2, class: 'bid'} as TLSFieldSetting,
+  { caption: 'Offer Price', required: true, type: 'number', name: 'subject', order: 0, class: 'bid'} as TLSFieldSetting,
   { caption: 'Message', required: true, type: 'text', lines: 6, name: 'message', order: 1} as TLSFieldSetting
 ];
 

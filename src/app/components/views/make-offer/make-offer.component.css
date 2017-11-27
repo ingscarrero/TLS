@@ -1,0 +1,155 @@
+div#title{
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+
+div#title::after{
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    background-size: cover;
+    background-repeat: none;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-image: url('/assets/stock-photo-sealing-a-deal-two-happy-young-men-shaking-hands-while-sitting-in-the-rest-area-of-the-office-299886455.jpg');
+    background-size: cover;
+}
+
+div#title div#title-band {
+    width: 100%;
+    color: white;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(252, 8, 8, 0.5)), to(rgba(252, 8, 8, 1)));
+    background-image: -webkit-linear-gradient(right, rgba(252, 8, 8, 0.5), rgba(252, 8, 8, 1));
+    background-image: -moz-linear-gradient(right, rgba(252, 8, 8, 0.5), rgba(252, 8, 8, 1));
+    background-image: linear-gradient(to right, rgba(252, 8, 8, 0.5), rgba(252, 8, 8, 1));
+
+    z-index: 100;
+    padding: 20px 20px;
+    border-bottom-left-radius: 40px;
+}
+div#title div#title-band h1{
+    text-align: right;
+    letter-spacing: 10px;
+    font-family: Impact;
+    font-size: 36px;
+}
+
+div#title div.overlay{
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255, 0.1)), to(rgba(255,255,255,0.8)));
+    background-image: -webkit-linear-gradient(right, rgba(255,255,255, 0.1), rgba(255,255,255,0.8));
+    background-image: -moz-linear-gradient(right, rgba(255,255,255, 0.1), rgba(255,255,255,0.8));
+    background-image: linear-gradient(to right, rgba(255,255,255, 0.1), rgba(255,255,255,0.8));
+    z-index: 100;
+}
+
+div#content{
+    position: relative;
+    display: flex;
+    flex-grow: 2;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+div#content::after{
+    content: "";
+    position: absolute;
+    opacity: 0.2;
+    background-image: url('/assets/dots.jpg'); 
+    background-size: cover;
+    background-repeat: none;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+div#content div.overlay{
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255, 0)), to(rgba(255,255,255,1)));
+    background-image: -webkit-linear-gradient(right, rgba(255,255,255, 0), rgba(255,255,255,1));
+    background-image: -moz-linear-gradient(right, rgba(255,255,255, 0), rgba(255,255,255,1));
+    background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255,1));
+}
+
+app-form{
+    width: 100%;
+    padding: 0 40px;
+    z-index: 100;
+}
+
+
+@media only screen and (max-width: 768px) {
+    div#title{
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+        flex-grow: 2;
+        border-radius: initial;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+    }
+    div#content{
+        width: 100%;
+        height: auto;
+        flex-grow: 1;
+        border-radius: initial;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+    div#title::after{
+        border-radius: initial;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+    }
+    div#content::after{
+        border-radius: initial;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+    div#title div#title-band {
+        padding: 0 20px;
+        border-radius: 0;
+    }
+
+
+    div#title div.overlay{
+        border-top-right-radius: 40px;
+    }
+
+    div#content div.overlay{
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    
+}
+
+
