@@ -24,6 +24,7 @@ div#title::after{
     left:0;
     background-image: url('/assets/stock-photo-sealing-a-deal-two-happy-young-men-shaking-hands-while-sitting-in-the-rest-area-of-the-office-299886455.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 div#title div#title-band {

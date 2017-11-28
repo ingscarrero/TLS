@@ -20,7 +20,7 @@ export interface Inquiry {
     createdOn?: Date;
     createdBy?: string;
     subject?: string;
-    message?: string;
+    comments?: string;
     trace: Array<Event>;
 }
 export interface Product {
@@ -34,7 +34,7 @@ export interface Offer {
     type: OfferType;
     status: OfferStatus;
     amount: number;
-    message?: string;
+    comments?: string;
     trace: Array<Event>;
     product?: Product;
 }

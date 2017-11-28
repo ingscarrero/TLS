@@ -18,13 +18,19 @@ const defaultInquiry: TLSInquiry = {
 
 const defaultViewSettings: TLSViewSettings = {
   title: 'Ask a Specialist',
-  action: 'Send',
+  action: 'Next',
+  sortBy: 'order'
+};
+
+const secondViewSettings: TLSViewSettings = {
+  title: 'Contact Information',
+  action: 'Submit',
   sortBy: 'order'
 };
 
 const firstStepFields = [
   { caption: 'Subject', required: true, type: 'text', name: 'subject', order: 0, lines: 2} as TLSFieldSetting,
-  { caption: 'Message', required: true, type: 'text', lines: 6, name: 'message', order: 1} as TLSFieldSetting
+  { caption: 'Message', required: true, type: 'text', lines: 6, name: 'comments', order: 1} as TLSFieldSetting
 ];
 
 const secondStepFields = [
@@ -40,13 +46,15 @@ const secondStepFields = [
 })
 export class AskToSpecialistComponent implements OnInit {
   @Input() subject: string;
-  @Input() order: string;
+  result = 'Thanks for your interest. In short, one of our specialist will get in touch with you for addressing your inquiry.';
   inquiry: TLSInquiry = defaultInquiry;
-  settings: TLSViewSettings = defaultViewSettings;
+  firstStageSettings: TLSViewSettings = defaultViewSettings;
+  secondStageSettings: TLSViewSettings = secondViewSettings;
   currentStep = 0;
 
   constructor() {
-    this.settings.content = firstStepFields;
+    this.firstStageSettings.content = firstStepFields;
+    this.secondStageSettings.content = secondStepFields;
   }
 
   ngOnInit() {
@@ -54,8 +62,9 @@ export class AskToSpecialistComponent implements OnInit {
   }
 
   next() {
-    console.log(this.inquiry);
-    this.currentStep = 1;
-    this.settings.content = secondStepFields;
+    if (this.currentStep >= 2) {
+      return;
+    }
+    this.currentStep += 1;
   }
 }

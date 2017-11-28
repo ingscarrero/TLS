@@ -19,13 +19,19 @@ const defaultOffer: TLSOffer = {
 
 const defaultViewSettings: TLSViewSettings = {
   title: 'Make an Offer',
-  action: 'Bid',
+  action: 'Next',
+  sortBy: 'order'
+};
+
+const secondViewSettings: TLSViewSettings = {
+  title: 'Contact Information',
+  action: 'Place Bid',
   sortBy: 'order'
 };
 
 const firstStepFields = [
-  { caption: 'Offer Price', required: true, type: 'number', name: 'subject', order: 0, class: 'bid'} as TLSFieldSetting,
-  { caption: 'Message', required: true, type: 'text', lines: 6, name: 'message', order: 1} as TLSFieldSetting
+  { caption: 'Offer Price', required: true, type: 'number', name: 'amount', order: 0, class: 'bid-control'} as TLSFieldSetting,
+  { caption: 'Message', required: true, type: 'text', lines: 6, name: 'comments', order: 1} as TLSFieldSetting
 ];
 
 
@@ -45,12 +51,14 @@ export class MakeOfferComponent implements OnInit {
 
   @Input() product: TLSProduct;
   @Input() order: string;
-
+  result = 'Thanks for your insterest. We will validate your offer and when we\'ve made a decision, we will get in touch with you.';
   offer: TLSOffer = defaultOffer;
-  settings: TLSViewSettings = defaultViewSettings;
+  firstStageSettings: TLSViewSettings = defaultViewSettings;
+  secondStageSettings: TLSViewSettings = secondViewSettings;
   currentStep = 0;
   constructor() {
-    this.settings.content = firstStepFields;
+    this.firstStageSettings.content = firstStepFields;
+    this.secondStageSettings.content = secondStepFields;
   }
 
   ngOnInit() {
@@ -58,9 +66,10 @@ export class MakeOfferComponent implements OnInit {
   }
 
   next() {
-    console.log(this.offer);
-    this.currentStep = 1;
-    this.settings.content = secondStepFields;
+    if (this.currentStep >= 2) {
+      return;
+    }
+    this.currentStep += 1;
   }
 
 }

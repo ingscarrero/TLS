@@ -1,10 +1,10 @@
-<form id="{{name}}">
+<form id="{{name}}" [formGroup]="form" novalidate>
   <div *ngFor="let field of fields | orderBy: order" class="field-group">
     <div *ngIf="field.type=='text'" class="field {{field.class? field.class : ''}}">
       <label>
         {{field.caption}}
       </label>
-      <textarea rows="field.lines ? field.lines : 1" [(ngModel)]="model[field.name]" name="{{field.name}}" rows="{{field.lines}}" required="{{field.required}}"></textarea>
+      <textarea [formControlName]="field.name" rows="field.lines ? field.lines : 1" [(ngModel)]="model[field.name]" rows="{{field.lines}}" required="{{field.required}}"></textarea>
       <hr>
       <hr>
     </div>
@@ -12,7 +12,7 @@
       <label *ngIf="!field.lines">
         {{field.caption}}
       </label>
-      <input [(ngModel)]="model[field.name]" type="email" name="{{field.name}}" required="{{field.required}}">
+      <input [formControlName]="field.name" [(ngModel)]="model[field.name]" type="email" required="{{field.required}}">
       <hr>
       <hr>
     </div>
@@ -20,7 +20,7 @@
       <label *ngIf="!field.lines">
         {{field.caption}}
       </label>
-      <input [(ngModel)]="model[field.name]" type="tel" name="{{field.name}}" required="{{field.required}}">
+      <input [formControlName]="field.name" [(ngModel)]="model[field.name]" type="tel" required="{{field.required}}">
       <hr>
       <hr>
     </div>
@@ -28,10 +28,14 @@
       <label *ngIf="!field.lines">
         {{field.caption}}
       </label>
-      <input [(ngModel)]="model[field.name]" type="number" name="{{field.name}}" required="{{field.required}}">
+      <input [formControlName]="field.name" [(ngModel)]="model[field.name]" type="number" required="{{field.required}}">
       <hr>
       <hr>
     </div>
   </div>
-  <button class="button" (click)=submit()>{{action}}</button>
+  <button 
+    [disabled]="!form.valid"
+    class="button" 
+    (click)=submit()>{{action}}</button>
+  <div *ngIf="error" class="message">{{error}}</div>
 </form>

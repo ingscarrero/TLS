@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { OrderModule } from 'ngx-order-pipe';
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { TableComponent } from './components/controls/table/table.component';
   imports: [
     BrowserModule,
     FormsModule,
-    OrderModule
+    OrderModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ div#title{
     overflow: hidden;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
+    
 }
 
 div#title::after{
@@ -24,6 +25,7 @@ div#title::after{
     left:0;
     background-image: url('/assets/stock-photo-mechanic-repairing-a-car-273021755.jpg');
     background-size: cover;
+    
 }
 
 div#title div#title-band {
@@ -78,6 +80,7 @@ div#content::after{
     background-repeat: none;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
+    background-position: center;
     top:0;
     right:0;
     bottom:0;
