@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-* {
+app-ask-to-specialist * {
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+app-make-offer * {
     transition-property: all;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
